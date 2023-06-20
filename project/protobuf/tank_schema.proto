@@ -1,22 +1,9 @@
-// A generic grouping for any identifiable entity
-message NamedThing
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
- }
-// Represents a Tank
 message Tank
  {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string primaryEmail = 0
-  integer ageInYears = 0
-  personStatus vitalStatus = 0
+  string wheels = 0
+  string chains = 0
  }
-// A holder for Tank objects
-message TankCollection
+message Vehicle
  {
- repeated  tank entries = 0
+  string wheels = 0
  }

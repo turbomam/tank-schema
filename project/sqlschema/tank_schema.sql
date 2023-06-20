@@ -1,23 +1,12 @@
 
 
-CREATE TABLE "NamedThing" (
-	id TEXT NOT NULL, 
-	name TEXT, 
-	description TEXT, 
-	PRIMARY KEY (id)
-);
-
 CREATE TABLE "Tank" (
-	id TEXT NOT NULL, 
-	name TEXT, 
-	description TEXT, 
-	primary_email TEXT, 
-	age_in_years INTEGER, 
-	vital_status VARCHAR(7), 
-	PRIMARY KEY (id)
+	wheels TEXT NOT NULL, 
+	chains TEXT NOT NULL, 
+	PRIMARY KEY (wheels, chains)
 );
 
-CREATE TABLE "TankCollection" (
-	entries TEXT, 
-	PRIMARY KEY (entries)
+CREATE TABLE "Vehicle" (
+	wheels TEXT NOT NULL, 
+	PRIMARY KEY (wheels)
 );

@@ -1,42 +1,17 @@
 {
-  "name": "tank-schema",
-  "description": "a vehicle and tank schema",
-  "title": "tank-schema",
-  "see_also": [
-    "https://turbomam.github.io/tank-schema"
-  ],
-  "id": "https://w3id.org/turbomam/tank-schema",
+  "name": "tank",
+  "id": "http://example.org/tank",
   "imports": [
     "linkml:types"
   ],
-  "license": "MIT",
+  "license": "https://creativecommons.org/publicdomain/zero/1.0/",
   "prefixes": [
-    {
-      "prefix_prefix": "tank_schema",
-      "prefix_reference": "https://w3id.org/turbomam/tank-schema/"
-    },
     {
       "prefix_prefix": "linkml",
       "prefix_reference": "https://w3id.org/linkml/"
-    },
-    {
-      "prefix_prefix": "biolink",
-      "prefix_reference": "https://w3id.org/biolink/"
-    },
-    {
-      "prefix_prefix": "schema",
-      "prefix_reference": "http://schema.org/"
-    },
-    {
-      "prefix_prefix": "PATO",
-      "prefix_reference": "http://purl.obolibrary.org/obo/PATO_"
-    },
-    {
-      "prefix_prefix": "example",
-      "prefix_reference": "https://example.org/"
     }
   ],
-  "default_prefix": "tank_schema",
+  "default_prefix": "http://example.org/tank/",
   "default_range": "string",
   "types": [
     {
@@ -295,250 +270,90 @@
       "@type": "TypeDefinition"
     }
   ],
-  "enums": [
-    {
-      "name": "PersonStatus",
-      "definition_uri": "https://w3id.org/turbomam/tank-schema/PersonStatus",
-      "notes": [
-        "redundant text properties are currently required for building a DataHarmonizer menu"
-      ],
-      "from_schema": "https://w3id.org/turbomam/tank-schema",
-      "permissible_values": [
-        {
-          "text": "ALIVE",
-          "description": "the person is living",
-          "meaning": "PATO:0001421"
-        },
-        {
-          "text": "DEAD",
-          "description": "the person is deceased",
-          "meaning": "PATO:0001422"
-        },
-        {
-          "text": "UNKNOWN",
-          "description": "the vital status is not known",
-          "todos": [
-            "map this to an ontology"
-          ]
-        }
-      ]
-    }
-  ],
   "slots": [
     {
-      "name": "id",
-      "definition_uri": "https://w3id.org/turbomam/tank-schema/id",
-      "description": "A unique identifier for a thing",
-      "from_schema": "https://w3id.org/turbomam/tank-schema",
-      "mappings": [
-        "http://schema.org/identifier"
-      ],
-      "slot_uri": "http://schema.org/identifier",
-      "identifier": true,
-      "owner": "NamedThing",
+      "name": "wheels",
+      "definition_uri": "http://example.org/tank/wheels",
+      "from_schema": "http://example.org/tank",
+      "slot_uri": "http://example.org/tank/wheels",
+      "owner": "Vehicle",
       "domain_of": [
-        "NamedThing"
+        "Vehicle"
       ],
-      "range": "uriorcurie",
+      "range": "string",
       "required": true,
-      "pattern": "[a-zA-Z0-9_]+:[a-zA-Z0-9_]+",
       "@type": "SlotDefinition"
     },
     {
-      "name": "name",
-      "definition_uri": "https://w3id.org/turbomam/tank-schema/name",
-      "description": "A human-readable name for a thing",
-      "from_schema": "https://w3id.org/turbomam/tank-schema",
-      "mappings": [
-        "http://schema.org/name"
-      ],
-      "slot_uri": "http://schema.org/name",
-      "owner": "NamedThing",
-      "domain_of": [
-        "NamedThing"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "description",
-      "definition_uri": "https://w3id.org/turbomam/tank-schema/description",
-      "description": "A human-readable description for a thing",
-      "from_schema": "https://w3id.org/turbomam/tank-schema",
-      "mappings": [
-        "http://schema.org/description"
-      ],
-      "slot_uri": "http://schema.org/description",
-      "owner": "NamedThing",
-      "domain_of": [
-        "NamedThing"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "primary_email",
-      "definition_uri": "https://w3id.org/turbomam/tank-schema/primary_email",
-      "description": "The main email address of a person",
-      "from_schema": "https://w3id.org/turbomam/tank-schema",
-      "mappings": [
-        "http://schema.org/email"
-      ],
-      "slot_uri": "http://schema.org/email",
+      "name": "chains",
+      "definition_uri": "http://example.org/tank/chains",
+      "from_schema": "http://example.org/tank",
+      "is_a": "wheels",
+      "slot_uri": "http://example.org/tank/chains",
       "owner": "Tank",
       "domain_of": [
         "Tank"
       ],
       "range": "string",
+      "required": true,
       "@type": "SlotDefinition"
     },
     {
-      "name": "birth_date",
-      "definition_uri": "https://w3id.org/turbomam/tank-schema/birth_date",
-      "description": "Date on which a person is born",
-      "from_schema": "https://w3id.org/turbomam/tank-schema",
-      "mappings": [
-        "http://schema.org/birthDate"
-      ],
-      "slot_uri": "http://schema.org/birthDate",
-      "range": "date",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "age_in_years",
-      "definition_uri": "https://w3id.org/turbomam/tank-schema/age_in_years",
-      "description": "Number of years since birth",
-      "from_schema": "https://w3id.org/turbomam/tank-schema",
-      "slot_uri": "https://w3id.org/turbomam/tank-schema/age_in_years",
-      "owner": "Tank",
-      "domain_of": [
-        "Tank"
-      ],
-      "range": "integer",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "vital_status",
-      "definition_uri": "https://w3id.org/turbomam/tank-schema/vital_status",
-      "description": "living or dead status",
-      "from_schema": "https://w3id.org/turbomam/tank-schema",
-      "slot_uri": "https://w3id.org/turbomam/tank-schema/vital_status",
-      "owner": "Tank",
-      "domain_of": [
-        "Tank"
-      ],
-      "range": "PersonStatus",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "tankCollection__entries",
-      "from_schema": "https://w3id.org/turbomam/tank-schema",
-      "slot_uri": "https://w3id.org/turbomam/tank-schema/entries",
-      "multivalued": true,
-      "alias": "entries",
-      "owner": "TankCollection",
-      "domain_of": [
-        "TankCollection"
-      ],
-      "range": "Tank",
-      "inlined": true,
-      "inlined_as_list": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "Tank_primary_email",
-      "definition_uri": "https://w3id.org/turbomam/tank-schema/primary_email",
-      "description": "The main email address of a person",
-      "from_schema": "https://w3id.org/turbomam/tank-schema",
-      "mappings": [
-        "http://schema.org/email"
-      ],
-      "is_a": "primary_email",
+      "name": "Tank_chains",
+      "definition_uri": "http://example.org/tank/chains",
+      "from_schema": "http://example.org/tank",
+      "is_a": "chains",
       "domain": "Tank",
-      "slot_uri": "http://schema.org/email",
-      "alias": "primary_email",
+      "slot_uri": "http://example.org/tank/chains",
+      "alias": "chains",
       "owner": "Tank",
       "domain_of": [
         "Tank"
       ],
       "is_usage_slot": true,
-      "usage_slot_name": "primary_email",
+      "usage_slot_name": "chains",
       "range": "string",
-      "pattern": "^\\S+@[\\S+\\.]+\\S+",
+      "required": true,
       "@type": "SlotDefinition"
     }
   ],
   "classes": [
     {
-      "name": "NamedThing",
-      "definition_uri": "https://w3id.org/turbomam/tank-schema/NamedThing",
-      "description": "A generic grouping for any identifiable entity",
-      "from_schema": "https://w3id.org/turbomam/tank-schema",
-      "mappings": [
-        "schema:Thing"
-      ],
+      "name": "Vehicle",
+      "definition_uri": "http://example.org/tank/Vehicle",
+      "from_schema": "http://example.org/tank",
       "slots": [
-        "id",
-        "name",
-        "description"
+        "wheels"
       ],
       "slot_usage": {},
-      "class_uri": "http://schema.org/Thing",
+      "class_uri": "http://example.org/tank/Vehicle",
       "@type": "ClassDefinition"
     },
     {
       "name": "Tank",
-      "definition_uri": "https://w3id.org/turbomam/tank-schema/Tank",
-      "description": "Represents a Tank",
-      "from_schema": "https://w3id.org/turbomam/tank-schema",
-      "is_a": "NamedThing",
+      "definition_uri": "http://example.org/tank/Tank",
+      "from_schema": "http://example.org/tank",
+      "is_a": "Vehicle",
       "slots": [
-        "id",
-        "name",
-        "description",
-        "Tank_primary_email",
-        "age_in_years",
-        "vital_status"
+        "wheels",
+        "Tank_chains"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/turbomam/tank-schema/Tank",
-      "@type": "ClassDefinition"
-    },
-    {
-      "name": "TankCollection",
-      "definition_uri": "https://w3id.org/turbomam/tank-schema/TankCollection",
-      "description": "A holder for Tank objects",
-      "from_schema": "https://w3id.org/turbomam/tank-schema",
-      "slots": [
-        "tankCollection__entries"
-      ],
-      "slot_usage": {},
-      "attributes": [
-        {
-          "name": "entries",
-          "multivalued": true,
-          "range": "Tank",
-          "inlined": true,
-          "inlined_as_list": true,
-          "@type": "SlotDefinition"
-        }
-      ],
-      "class_uri": "https://w3id.org/turbomam/tank-schema/TankCollection",
-      "tree_root": true,
+      "class_uri": "http://example.org/tank/Tank",
       "@type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.7.0",
   "source_file": "tank_schema.yaml",
-  "source_file_date": "2023-06-20T19:51:16",
-  "source_file_size": 2470,
-  "generation_date": "2023-06-20T19:52:11",
+  "source_file_date": "2023-06-20T19:56:14",
+  "source_file_size": 355,
+  "generation_date": "2023-06-20T19:58:09",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/tank_schema.context.jsonld",
     "https://w3id.org/linkml/types.context.jsonld",
     {
-      "@base": "https://w3id.org/turbomam/tank-schema/"
+      "@base": "http://example.org/tank/"
     }
   ]
 }

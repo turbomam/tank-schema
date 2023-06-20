@@ -1,11 +1,9 @@
 {
-   "PATO": "http://purl.obolibrary.org/obo/PATO_",
-   "biolink": "https://w3id.org/biolink/",
-   "example": "https://example.org/",
    "linkml": "https://w3id.org/linkml/",
-   "schema": "http://schema.org/",
-   "tank_schema": "https://w3id.org/turbomam/tank-schema/",
-   "NamedThing": {
-      "@id": "schema:Thing"
+   "Tank": {
+      "@id": "http://example.org/tank/Tank"
+   },
+   "Vehicle": {
+      "@id": "http://example.org/tank/Vehicle"
    }
 }

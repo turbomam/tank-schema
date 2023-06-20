@@ -1,104 +1,24 @@
----
-id: https://w3id.org/turbomam/tank-schema
-name: tank-schema
-title: tank-schema
-description: |-
-  a vehicle and tank schema
-license: MIT
-see_also:
-  - https://turbomam.github.io/tank-schema
-
+id: http://example.org/tank
 prefixes:
-  tank_schema: https://w3id.org/turbomam/tank-schema/
   linkml: https://w3id.org/linkml/
-  biolink: https://w3id.org/biolink/
-  schema: http://schema.org/
-  PATO: http://purl.obolibrary.org/obo/PATO_
-  example: https://example.org/
-default_prefix: tank_schema
-default_range: string
-
 imports:
   - linkml:types
-
-classes:
-
-  NamedThing:
-    description: >-
-      A generic grouping for any identifiable entity
-    slots:
-      - id
-      - name
-      - description
-    class_uri: schema:Thing
-
-  Tank:
-    is_a: NamedThing
-    description: >-
-      Represents a Tank
-    slots:
-      - primary_email
-#      - birth_date # DataHarmoizer is saving date-ranged data as datetimes
-      - age_in_years
-      - vital_status
-    slot_usage:
-      primary_email:
-        pattern: "^\\S+@[\\S+\\.]+\\S+"
-
-  TankCollection:
-    tree_root: true
-    description: >-
-      A holder for Tank objects
-    attributes:
-      entries:
-        range: Tank
-        multivalued: true
-        inlined: true
-        inlined_as_list: true
+default_range: string
 
 slots:
-  id:
-    description: A unique identifier for a thing
-    identifier: true
-    pattern: "[a-zA-Z0-9_]+:[a-zA-Z0-9_]+"
-    range: uriorcurie
+  wheels:
     required: true
-    slot_uri: schema:identifier
-  name:
-    slot_uri: schema:name
-    description: A human-readable name for a thing
-  description:
-    slot_uri: schema:description
-    description: A human-readable description for a thing
-  primary_email:
-    slot_uri: schema:email
-    description: The main email address of a person
-  birth_date:
-    slot_uri: schema:birthDate
-    range: date
-    description: Date on which a person is born
-  age_in_years:
-    range: integer
-    description: Number of years since birth
-  vital_status:
-    range: PersonStatus
-    description: living or dead status
-
-enums:
-  PersonStatus:
-    notes:
-      - redundant text properties are currently required for building a DataHarmonizer menu
-    permissible_values:
-      ALIVE:
-        text: ALIVE
-        description: the person is living
-        meaning: PATO:0001421
-      DEAD:
-        text: DEAD
-        description: the person is deceased
-        meaning: PATO:0001422
-      UNKNOWN:
-        text: UNKNOWN
-        description: the vital status is not known
-        todos:
-          - map this to an ontology
+  chains:
+    is_a: wheels
+    required: true
+classes:
+  Vehicle:
+    slots:
+      - wheels
+  Tank:
+    is_a: Vehicle
+    slots:
+      - chains
+    slot_usage:
+      chains:
+        required: true

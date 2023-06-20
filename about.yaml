@@ -1,0 +1,7 @@
+---
+name: tank_schema
+author: Mark Andrew Miller <mam@lbl.gov>
+description: a vehicle and tank schema
+source_schema_path: src/tank_schema/schema/tank_schema.yaml
+google_sheet_id: 1wVoaiFg47aT9YWNeRfTZ8tYHN8s8PAuDx5i2HUcDpvQ
+google_sheet_tabs: personinfo enums

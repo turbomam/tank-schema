@@ -1,0 +1,105 @@
+{
+    "$defs": {
+        "NamedThing": {
+            "additionalProperties": false,
+            "description": "A generic grouping for any identifiable entity",
+            "properties": {
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "pattern": "[a-zA-Z0-9_]+:[a-zA-Z0-9_]+",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "NamedThing",
+            "type": "object"
+        },
+        "PersonStatus": {
+            "description": "",
+            "enum": [
+                "ALIVE",
+                "DEAD",
+                "UNKNOWN"
+            ],
+            "title": "PersonStatus",
+            "type": "string"
+        },
+        "Tank": {
+            "additionalProperties": false,
+            "description": "Represents a Tank",
+            "properties": {
+                "age_in_years": {
+                    "description": "Number of years since birth",
+                    "type": "integer"
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "pattern": "[a-zA-Z0-9_]+:[a-zA-Z0-9_]+",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                },
+                "primary_email": {
+                    "description": "The main email address of a person",
+                    "pattern": "^\\S+@[\\S+\\.]+\\S+",
+                    "type": "string"
+                },
+                "vital_status": {
+                    "$ref": "#/$defs/PersonStatus",
+                    "description": "living or dead status"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Tank",
+            "type": "object"
+        },
+        "TankCollection": {
+            "additionalProperties": false,
+            "description": "A holder for Tank objects",
+            "properties": {
+                "entries": {
+                    "items": {
+                        "$ref": "#/$defs/Tank"
+                    },
+                    "type": "array"
+                }
+            },
+            "title": "TankCollection",
+            "type": "object"
+        }
+    },
+    "$id": "https://w3id.org/turbomam/tank-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "additionalProperties": true,
+    "description": "A holder for Tank objects",
+    "metamodel_version": "1.7.0",
+    "properties": {
+        "entries": {
+            "items": {
+                "$ref": "#/$defs/Tank"
+            },
+            "type": "array"
+        }
+    },
+    "title": "tank-schema",
+    "type": "object",
+    "version": null
+}

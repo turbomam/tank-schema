@@ -1,0 +1,9 @@
+{
+  "tank_schema": {
+    "Person": {
+      "name": "Person",
+      "status": "published",
+      "display": true
+    }
+  }
+}

@@ -41,11 +41,11 @@ linkml:topValue a owl:DatatypeProperty ;
     rdfs:label "Tank" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onClass linkml:String ;
-            owl:onProperty <http://example.org/tank/chains> ;
+            owl:onProperty <http://example.org/tank/wheels> ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass linkml:String ;
-            owl:onProperty <http://example.org/tank/wheels> ;
+            owl:onProperty <http://example.org/tank/chains> ;
             owl:qualifiedCardinality 1 ],
         <http://example.org/tank/Vehicle> .
 

@@ -35,7 +35,7 @@ classes:
       wheels:
         required: false
         comments:
-          - it does not seem like the 'required: false' usage is being honored
+          - it does not seem like the required = false usage is being honored
       chains:
         required: true
 

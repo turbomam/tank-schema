@@ -254,7 +254,7 @@
         "wheels": {
           "name": "wheels",
           "comments": [
-            "{\"it does not seem like the 'required\": \"false' usage is being honored\"}"
+            "it does not seem like the required = false usage is being honored"
           ],
           "domain_of": [
             "Vehicle"
@@ -285,7 +285,7 @@
         "wheels": {
           "name": "wheels",
           "comments": [
-            "{\"it does not seem like the 'required\": \"false' usage is being honored\"}"
+            "it does not seem like the required = false usage is being honored"
           ],
           "from_schema": "http://example.org/tank",
           "alias": "wheels",

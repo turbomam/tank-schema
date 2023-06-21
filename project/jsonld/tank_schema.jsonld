@@ -324,7 +324,7 @@
       "name": "Tank_wheels",
       "definition_uri": "http://example.org/tank/wheels",
       "comments": [
-        "{\"it does not seem like the 'required\": \"false' usage is being honored\"}"
+        "it does not seem like the required = false usage is being honored"
       ],
       "from_schema": "http://example.org/tank",
       "is_a": "wheels",
@@ -402,9 +402,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "tank_schema.yaml",
-  "source_file_date": "2023-06-20T20:37:41",
-  "source_file_size": 970,
-  "generation_date": "2023-06-20T20:37:59",
+  "source_file_date": "2023-06-20T20:42:25",
+  "source_file_size": 969,
+  "generation_date": "2023-06-20T20:42:41",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/tank_schema.context.jsonld",

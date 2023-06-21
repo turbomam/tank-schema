@@ -147,6 +147,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#comments">
+    Comments
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#identifier-and-mapping-information">
     Identifier and Mapping Information
   </a>
@@ -195,13 +200,12 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
 <h1 id="class-tankcollection">Class: TankCollection</h1>
-<p><em>A holder for Tank objects</em></p>
-<p>URI: <a href="https://w3id.org/turbomam/tank-schema/TankCollection">tank_schema:TankCollection</a></p>
+<p>URI: <a href="http://example.org/tank/:TankCollection">http://example.org/tank/:TankCollection</a></p>
 <div class="mermaid"> classDiagram
     class TankCollection
-      TankCollection : entries
+      TankCollection : tanks
 
-          TankCollection --|&gt; Tank : entries
+          TankCollection --|&gt; Tank : tanks
 
 
 </div>
@@ -218,17 +222,21 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../entries/">entries</a></td>
+<td><a href="../tanks/">tanks</a></td>
 <td>0..* <br/> <a href="../Tank/">Tank</a></td>
 <td></td>
 <td>direct</td>
 </tr>
 </tbody>
 </table>
+<h2 id="comments">Comments</h2>
+<ul>
+<li>from @turbomam, for better compatibility with examples-first-cookiecutter</li>
+</ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: https://w3id.org/turbomam/tank-schema</li>
+<li>from schema: http://example.org/tank</li>
 </ul>
 <h2 id="mappings">Mappings</h2>
 <table>
@@ -241,11 +249,11 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>tank_schema:TankCollection</td>
+<td>http://example.org/tank/:TankCollection</td>
 </tr>
 <tr>
 <td>native</td>
-<td>tank_schema:TankCollection</td>
+<td>http://example.org/tank/:TankCollection</td>
 </tr>
 </tbody>
 </table>
@@ -254,40 +262,35 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: TankCollection
-description: A holder for Tank objects
-from_schema: https://w3id.org/turbomam/tank-schema
-attributes:
-  entries:
-    name: entries
-    from_schema: https://w3id.org/turbomam/tank-schema
-    rank: 1000
-    multivalued: true
-    range: Tank
-    inlined: true
-    inlined_as_list: true
-tree_root: true
+comments:
+- from @turbomam, for better compatibility with examples-first-cookiecutter
+from_schema: http://example.org/tank
+slots:
+- tanks
 
 </code></pre>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: TankCollection
-description: A holder for Tank objects
-from_schema: https://w3id.org/turbomam/tank-schema
+comments:
+- from @turbomam, for better compatibility with examples-first-cookiecutter
+from_schema: http://example.org/tank
 attributes:
-  entries:
-    name: entries
-    from_schema: https://w3id.org/turbomam/tank-schema
+  tanks:
+    name: tanks
+    comments:
+    - from @turbomam, for better compatibility with examples-first-cookiecutter
+    from_schema: http://example.org/tank
     rank: 1000
     multivalued: true
-    alias: entries
+    alias: tanks
     owner: TankCollection
     domain_of:
     - TankCollection
     range: Tank
     inlined: true
     inlined_as_list: true
-tree_root: true
 
 </code></pre>
 </details>

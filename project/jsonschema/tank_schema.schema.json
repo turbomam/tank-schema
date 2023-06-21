@@ -49,7 +49,16 @@
     "$id": "http://example.org/tank",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "additionalProperties": true,
+    "description": "",
     "metamodel_version": "1.7.0",
+    "properties": {
+        "tanks": {
+            "items": {
+                "$ref": "#/$defs/Tank"
+            },
+            "type": "array"
+        }
+    },
     "title": "tank",
     "type": "object",
     "version": null

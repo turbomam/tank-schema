@@ -24,11 +24,11 @@
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path <http://example.org/tank/:wheels> ],
-        [ sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
-            sh:path <http://example.org/tank/:chains> ] ;
+            sh:path <http://example.org/tank/:chains> ],
+        [ sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path <http://example.org/tank/:wheels> ] ;
     sh:targetClass <http://example.org/tank/:Tank> .
 

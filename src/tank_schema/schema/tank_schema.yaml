@@ -44,3 +44,4 @@ classes:
       - tanks
     comments:
       - from @turbomam, for better compatibility with examples-first-cookiecutter
+    tree_root: true

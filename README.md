@@ -2,6 +2,8 @@
 
 a vehicle and tank schema
 
+illustrates a concern that `slot_usage` of `false` on `required` is not applied to an inherited slot
+
 ## Website
 
 [https://turbomam.github.io/tank-schema](https://turbomam.github.io/tank-schema)

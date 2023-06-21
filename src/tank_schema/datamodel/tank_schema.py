@@ -1,5 +1,5 @@
 # Auto generated from tank_schema.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-06-20T21:01:41
+# Generation date: 2023-06-20T21:09:15
 # Schema: tank
 #
 # id: http://example.org/tank
@@ -31,7 +31,8 @@ dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
-DEFAULT_ = CurieNamespace('', 'http://example.org/tank/')
+TANK = CurieNamespace('tank', 'http://example.org/tank/')
+DEFAULT_ = TANK
 
 
 # Types
@@ -44,10 +45,10 @@ DEFAULT_ = CurieNamespace('', 'http://example.org/tank/')
 class Vehicle(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = URIRef("http://example.org/tank/Vehicle")
-    class_class_curie: ClassVar[str] = None
+    class_class_uri: ClassVar[URIRef] = TANK.Vehicle
+    class_class_curie: ClassVar[str] = "tank:Vehicle"
     class_name: ClassVar[str] = "Vehicle"
-    class_model_uri: ClassVar[URIRef] = URIRef("http://example.org/tank/Vehicle")
+    class_model_uri: ClassVar[URIRef] = TANK.Vehicle
 
     wheels: str = None
 
@@ -64,10 +65,10 @@ class Vehicle(YAMLRoot):
 class Tank(Vehicle):
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = URIRef("http://example.org/tank/Tank")
-    class_class_curie: ClassVar[str] = None
+    class_class_uri: ClassVar[URIRef] = TANK.Tank
+    class_class_curie: ClassVar[str] = "tank:Tank"
     class_name: ClassVar[str] = "Tank"
-    class_model_uri: ClassVar[URIRef] = URIRef("http://example.org/tank/Tank")
+    class_model_uri: ClassVar[URIRef] = TANK.Tank
 
     chains: str = None
     wheels: str = None
@@ -90,10 +91,10 @@ class Tank(Vehicle):
 class TankCollection(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = URIRef("http://example.org/tank/TankCollection")
-    class_class_curie: ClassVar[str] = None
+    class_class_uri: ClassVar[URIRef] = TANK.TankCollection
+    class_class_curie: ClassVar[str] = "tank:TankCollection"
     class_name: ClassVar[str] = "TankCollection"
-    class_model_uri: ClassVar[URIRef] = URIRef("http://example.org/tank/TankCollection")
+    class_model_uri: ClassVar[URIRef] = TANK.TankCollection
 
     tanks: Optional[Union[Union[dict, Tank], List[Union[dict, Tank]]]] = empty_list()
 
@@ -112,17 +113,17 @@ class TankCollection(YAMLRoot):
 class slots:
     pass
 
-slots.wheels = Slot(uri=DEFAULT_.wheels, name="wheels", curie=DEFAULT_.curie('wheels'),
-                   model_uri=DEFAULT_.wheels, domain=None, range=str)
+slots.wheels = Slot(uri=TANK.wheels, name="wheels", curie=TANK.curie('wheels'),
+                   model_uri=TANK.wheels, domain=None, range=str)
 
-slots.chains = Slot(uri=DEFAULT_.chains, name="chains", curie=DEFAULT_.curie('chains'),
-                   model_uri=DEFAULT_.chains, domain=None, range=str)
+slots.chains = Slot(uri=TANK.chains, name="chains", curie=TANK.curie('chains'),
+                   model_uri=TANK.chains, domain=None, range=str)
 
-slots.tanks = Slot(uri=DEFAULT_.tanks, name="tanks", curie=DEFAULT_.curie('tanks'),
-                   model_uri=DEFAULT_.tanks, domain=None, range=Optional[Union[Union[dict, Tank], List[Union[dict, Tank]]]])
+slots.tanks = Slot(uri=TANK.tanks, name="tanks", curie=TANK.curie('tanks'),
+                   model_uri=TANK.tanks, domain=None, range=Optional[Union[Union[dict, Tank], List[Union[dict, Tank]]]])
 
-slots.Tank_wheels = Slot(uri=DEFAULT_.wheels, name="Tank_wheels", curie=DEFAULT_.curie('wheels'),
-                   model_uri=DEFAULT_.Tank_wheels, domain=Tank, range=str)
+slots.Tank_wheels = Slot(uri=TANK.wheels, name="Tank_wheels", curie=TANK.curie('wheels'),
+                   model_uri=TANK.Tank_wheels, domain=Tank, range=str)
 
-slots.Tank_chains = Slot(uri=DEFAULT_.chains, name="Tank_chains", curie=DEFAULT_.curie('chains'),
-                   model_uri=DEFAULT_.Tank_chains, domain=Tank, range=str)
+slots.Tank_chains = Slot(uri=TANK.chains, name="Tank_chains", curie=TANK.curie('chains'),
+                   model_uri=TANK.Tank_chains, domain=Tank, range=str)

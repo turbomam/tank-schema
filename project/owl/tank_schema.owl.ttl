@@ -2,12 +2,13 @@
 @prefix linkml: <https://w3id.org/linkml/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix tank: <http://example.org/tank/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <http://example.org/tank> a owl:Ontology ;
     rdfs:label "tank" ;
-    IAO:0000700 <http://example.org/tank/TankCollection>,
-        <http://example.org/tank/Vehicle> ;
+    IAO:0000700 tank:TankCollection,
+        tank:Vehicle ;
     linkml:id "http://example.org/tank" ;
     linkml:imports "linkml:types" .
 
@@ -18,46 +19,46 @@ linkml:TypeDefinition a owl:Class .
 linkml:topValue a owl:DatatypeProperty ;
     rdfs:label "value" .
 
-<http://example.org/tank/TankCollection> a owl:Class,
+tank:TankCollection a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "TankCollection" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom <http://example.org/tank/Tank> ;
-            owl:onProperty <http://example.org/tank/tanks> ] .
+            owl:allValuesFrom tank:Tank ;
+            owl:onProperty tank:tanks ] .
 
-<http://example.org/tank/chains> a owl:ObjectProperty,
+tank:chains a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "chains" ;
     rdfs:range linkml:String ;
-    rdfs:subPropertyOf <http://example.org/tank/wheels> .
+    rdfs:subPropertyOf tank:wheels .
 
-<http://example.org/tank/tanks> a owl:ObjectProperty,
+tank:tanks a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "tanks" ;
-    rdfs:range <http://example.org/tank/Tank> .
+    rdfs:range tank:Tank .
 
-<http://example.org/tank/Tank> a owl:Class,
+tank:Tank a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Tank" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onClass linkml:String ;
-            owl:onProperty <http://example.org/tank/chains> ;
+            owl:onProperty tank:wheels ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass linkml:String ;
-            owl:onProperty <http://example.org/tank/wheels> ;
+            owl:onProperty tank:chains ;
             owl:qualifiedCardinality 1 ],
-        <http://example.org/tank/Vehicle> .
+        tank:Vehicle .
 
-<http://example.org/tank/Vehicle> a owl:Class,
+tank:Vehicle a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "Vehicle" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onClass linkml:String ;
-            owl:onProperty <http://example.org/tank/wheels> ;
+            owl:onProperty tank:wheels ;
             owl:qualifiedCardinality 1 ] .
 
-<http://example.org/tank/wheels> a owl:ObjectProperty,
+tank:wheels a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "wheels" ;
     rdfs:range linkml:String .

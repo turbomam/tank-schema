@@ -10,6 +10,10 @@
       "prefix_prefix": "linkml",
       "prefix_reference": "https://w3id.org/linkml/"
     },
+    "tank": {
+      "prefix_prefix": "tank",
+      "prefix_reference": "http://example.org/tank/"
+    },
     "xsd": {
       "prefix_prefix": "xsd",
       "prefix_reference": "http://www.w3.org/2001/XMLSchema#"
@@ -23,7 +27,7 @@
       "prefix_reference": "http://schema.org/"
     }
   },
-  "default_prefix": "http://example.org/tank/",
+  "default_prefix": "tank",
   "default_range": "string",
   "types": {
     "string": {

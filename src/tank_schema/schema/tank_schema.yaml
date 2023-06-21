@@ -1,9 +1,11 @@
 id: http://example.org/tank
 prefixes:
   linkml: https://w3id.org/linkml/
+  tank: http://example.org/tank/
 imports:
   - linkml:types
 default_range: string
+default_prefix: tank
 comments:
   - corresponds to schema2.yaml from Silvano Cirujano Cuesta
   - https://obo-communitygroup.slack.com/archives/C04EU7JL1NF/p1687194459249399

@@ -13,9 +13,13 @@
     {
       "prefix_prefix": "linkml",
       "prefix_reference": "https://w3id.org/linkml/"
+    },
+    {
+      "prefix_prefix": "tank",
+      "prefix_reference": "http://example.org/tank/"
     }
   ],
-  "default_prefix": "http://example.org/tank/",
+  "default_prefix": "tank",
   "default_range": "string",
   "types": [
     {
@@ -403,9 +407,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "tank_schema.yaml",
-  "source_file_date": "2023-06-20T21:01:17",
-  "source_file_size": 989,
-  "generation_date": "2023-06-20T21:01:35",
+  "source_file_date": "2023-06-20T21:05:14",
+  "source_file_size": 1043,
+  "generation_date": "2023-06-20T21:09:09",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/tank_schema.context.jsonld",

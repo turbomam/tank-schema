@@ -45,9 +45,16 @@ linkml:Sparqlpath xsd:string
 <Tank> CLOSED {
     (  $<Tank_tes> (  &<Vehicle_tes> ;
           rdf:type [ <Vehicle> ] ? ;
-          <chains> @linkml:String
+          <chains> @linkml:String ;
+          <wheels> @linkml:String
        ) ;
        rdf:type [ <Tank> ] ?
+    )
+}
+
+<TankCollection> CLOSED {
+    (  $<TankCollection_tes> <tanks> @<Tank> * ;
+       rdf:type [ <TankCollection> ] ?
     )
 }
 

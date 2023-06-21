@@ -1,0 +1,9 @@
+{
+  "tanks": [
+    {
+      "wheels": "something",
+      "chains": "something"
+    }
+  ],
+  "@type": "TankCollection"
+}

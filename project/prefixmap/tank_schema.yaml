@@ -3,6 +3,9 @@
    "Tank": {
       "@id": "http://example.org/tank/Tank"
    },
+   "TankCollection": {
+      "@id": "http://example.org/tank/TankCollection"
+   },
    "Vehicle": {
       "@id": "http://example.org/tank/Vehicle"
    }

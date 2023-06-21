@@ -1,0 +1,7 @@
+@prefix ns1: <http://example.org/tank/:> .
+
+[] a ns1:TankCollection ;
+    ns1:tanks [ a ns1:Tank ;
+            ns1:chains "something" ;
+            ns1:wheels "something" ] .
+

@@ -4,6 +4,9 @@ prefixes:
 imports:
   - linkml:types
 default_range: string
+comments:
+  - corresponds to schema2.yaml from Silvano Cirujano Cuesta
+  - https://obo-communitygroup.slack.com/archives/C04EU7JL1NF/p1687194459249399
 
 slots:
   wheels:
@@ -11,11 +14,15 @@ slots:
   chains:
     is_a: wheels
     required: true
+
   tanks:
     range: Tank
     multivalued: true
     inlined: true
     inlined_as_list: true
+    comments:
+      - from @turbomam, for better compatibility with examples-first-cookiecutter
+
 classes:
   Vehicle:
     slots:
@@ -25,8 +32,15 @@ classes:
     slots:
       - chains
     slot_usage:
+      wheels:
+        required: false
+        comments:
+          - it does not seem like the 'required: false' usage is being honored
       chains:
         required: true
+
   TankCollection:
     slots:
       - tanks
+    comments:
+      - from @turbomam, for better compatibility with examples-first-cookiecutter

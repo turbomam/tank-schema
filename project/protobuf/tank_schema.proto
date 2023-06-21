@@ -1,7 +1,11 @@
 message Tank
  {
-  string wheels = 0
   string chains = 0
+  string wheels = 0
+ }
+message TankCollection
+ {
+ repeated  tank tanks = 0
  }
 message Vehicle
  {

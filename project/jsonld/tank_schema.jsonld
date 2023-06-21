@@ -1,5 +1,9 @@
 {
   "name": "tank",
+  "comments": [
+    "corresponds to schema2.yaml from Silvano Cirujano Cuesta",
+    "https://obo-communitygroup.slack.com/archives/C04EU7JL1NF/p1687194459249399"
+  ],
   "id": "http://example.org/tank",
   "imports": [
     "linkml:types"
@@ -299,6 +303,45 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "tanks",
+      "definition_uri": "http://example.org/tank/tanks",
+      "comments": [
+        "from @turbomam, for better compatibility with examples-first-cookiecutter"
+      ],
+      "from_schema": "http://example.org/tank",
+      "slot_uri": "http://example.org/tank/tanks",
+      "multivalued": true,
+      "owner": "TankCollection",
+      "domain_of": [
+        "TankCollection"
+      ],
+      "range": "Tank",
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "Tank_wheels",
+      "definition_uri": "http://example.org/tank/wheels",
+      "comments": [
+        "{\"it does not seem like the 'required\": \"false' usage is being honored\"}"
+      ],
+      "from_schema": "http://example.org/tank",
+      "is_a": "wheels",
+      "domain": "Tank",
+      "slot_uri": "http://example.org/tank/wheels",
+      "alias": "wheels",
+      "owner": "Tank",
+      "domain_of": [
+        "Tank"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "wheels",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "Tank_chains",
       "definition_uri": "http://example.org/tank/chains",
       "from_schema": "http://example.org/tank",
@@ -335,19 +378,33 @@
       "from_schema": "http://example.org/tank",
       "is_a": "Vehicle",
       "slots": [
-        "wheels",
-        "Tank_chains"
+        "Tank_chains",
+        "Tank_wheels"
       ],
       "slot_usage": {},
       "class_uri": "http://example.org/tank/Tank",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "TankCollection",
+      "definition_uri": "http://example.org/tank/TankCollection",
+      "comments": [
+        "from @turbomam, for better compatibility with examples-first-cookiecutter"
+      ],
+      "from_schema": "http://example.org/tank",
+      "slots": [
+        "tanks"
+      ],
+      "slot_usage": {},
+      "class_uri": "http://example.org/tank/TankCollection",
       "@type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.7.0",
   "source_file": "tank_schema.yaml",
-  "source_file_date": "2023-06-20T19:56:14",
-  "source_file_size": 355,
-  "generation_date": "2023-06-20T20:05:52",
+  "source_file_date": "2023-06-20T20:37:41",
+  "source_file_size": 970,
+  "generation_date": "2023-06-20T20:37:59",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/tank_schema.context.jsonld",

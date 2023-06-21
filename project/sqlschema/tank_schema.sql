@@ -1,9 +1,14 @@
 
 
 CREATE TABLE "Tank" (
-	wheels TEXT NOT NULL, 
 	chains TEXT NOT NULL, 
-	PRIMARY KEY (wheels, chains)
+	wheels TEXT NOT NULL, 
+	PRIMARY KEY (chains, wheels)
+);
+
+CREATE TABLE "TankCollection" (
+	tanks TEXT, 
+	PRIMARY KEY (tanks)
 );
 
 CREATE TABLE "Vehicle" (

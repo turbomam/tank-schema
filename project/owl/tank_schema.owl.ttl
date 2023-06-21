@@ -6,18 +6,10 @@
 
 <http://example.org/tank> a owl:Ontology ;
     rdfs:label "tank" ;
-    IAO:0000700 <http://example.org/tank/Vehicle> ;
+    IAO:0000700 <http://example.org/tank/TankCollection>,
+        <http://example.org/tank/Vehicle> ;
     linkml:id "http://example.org/tank" ;
     linkml:imports "linkml:types" .
-
-<http://example.org/tank/Tank> a owl:Class,
-        linkml:ClassDefinition ;
-    rdfs:label "Tank" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass linkml:String ;
-            owl:onProperty <http://example.org/tank/chains> ;
-            owl:qualifiedCardinality 1 ],
-        <http://example.org/tank/Vehicle> .
 
 linkml:SubsetDefinition a owl:Class .
 
@@ -26,11 +18,36 @@ linkml:TypeDefinition a owl:Class .
 linkml:topValue a owl:DatatypeProperty ;
     rdfs:label "value" .
 
+<http://example.org/tank/TankCollection> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "TankCollection" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <http://example.org/tank/Tank> ;
+            owl:onProperty <http://example.org/tank/tanks> ] .
+
 <http://example.org/tank/chains> a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "chains" ;
     rdfs:range linkml:String ;
     rdfs:subPropertyOf <http://example.org/tank/wheels> .
+
+<http://example.org/tank/tanks> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "tanks" ;
+    rdfs:range <http://example.org/tank/Tank> .
+
+<http://example.org/tank/Tank> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Tank" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty <http://example.org/tank/chains> ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty <http://example.org/tank/wheels> ;
+            owl:qualifiedCardinality 1 ],
+        <http://example.org/tank/Vehicle> .
 
 <http://example.org/tank/Vehicle> a owl:Class,
         linkml:ClassDefinition ;

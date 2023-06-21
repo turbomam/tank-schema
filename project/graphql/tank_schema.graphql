@@ -1,7 +1,12 @@
 type Tank
   {
-    wheels: String!
     chains: String!
+    wheels: String!
+  }
+
+type TankCollection
+  {
+    tanks: [Tank]
   }
 
 type Vehicle

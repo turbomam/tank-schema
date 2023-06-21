@@ -12,10 +12,23 @@
                 }
             },
             "required": [
-                "chains",
-                "wheels"
+                "chains"
             ],
             "title": "Tank",
+            "type": "object"
+        },
+        "TankCollection": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "tanks": {
+                    "items": {
+                        "$ref": "#/$defs/Tank"
+                    },
+                    "type": "array"
+                }
+            },
+            "title": "TankCollection",
             "type": "object"
         },
         "Vehicle": {

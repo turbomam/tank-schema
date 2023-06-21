@@ -2,18 +2,14 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://example.org/tank/:Tank> a sh:NodeShape ;
+<http://example.org/tank/:TankCollection> a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path <http://example.org/tank/:wheels> ],
-        [ sh:maxCount 1 ;
-            sh:minCount 1 ;
+    sh:property [ sh:class <http://example.org/tank/:Tank> ;
+            sh:nodeKind sh:BlankNode ;
             sh:order 0 ;
-            sh:path <http://example.org/tank/:chains> ] ;
-    sh:targetClass <http://example.org/tank/:Tank> .
+            sh:path <http://example.org/tank/:tanks> ] ;
+    sh:targetClass <http://example.org/tank/:TankCollection> .
 
 <http://example.org/tank/:Vehicle> a sh:NodeShape ;
     sh:closed true ;
@@ -23,4 +19,16 @@
             sh:order 0 ;
             sh:path <http://example.org/tank/:wheels> ] ;
     sh:targetClass <http://example.org/tank/:Vehicle> .
+
+<http://example.org/tank/:Tank> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path <http://example.org/tank/:chains> ],
+        [ sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path <http://example.org/tank/:wheels> ] ;
+    sh:targetClass <http://example.org/tank/:Tank> .
 

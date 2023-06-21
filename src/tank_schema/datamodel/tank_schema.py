@@ -1,5 +1,5 @@
 # Auto generated from tank_schema.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-06-20T20:05:57
+# Generation date: 2023-06-20T20:38:05
 # Schema: tank
 #
 # id: http://example.org/tank
@@ -69,14 +69,38 @@ class Tank(Vehicle):
     class_name: ClassVar[str] = "Tank"
     class_model_uri: ClassVar[URIRef] = URIRef("http://example.org/tank/Tank")
 
-    wheels: str = None
     chains: str = None
+    wheels: str = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.chains):
             self.MissingRequiredField("chains")
         if not isinstance(self.chains, str):
             self.chains = str(self.chains)
+
+        if self._is_empty(self.wheels):
+            self.MissingRequiredField("wheels")
+        if not isinstance(self.wheels, str):
+            self.wheels = str(self.wheels)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class TankCollection(YAMLRoot):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = URIRef("http://example.org/tank/TankCollection")
+    class_class_curie: ClassVar[str] = None
+    class_name: ClassVar[str] = "TankCollection"
+    class_model_uri: ClassVar[URIRef] = URIRef("http://example.org/tank/TankCollection")
+
+    tanks: Optional[Union[Union[dict, Tank], List[Union[dict, Tank]]]] = empty_list()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if not isinstance(self.tanks, list):
+            self.tanks = [self.tanks] if self.tanks is not None else []
+        self.tanks = [v if isinstance(v, Tank) else Tank(**as_dict(v)) for v in self.tanks]
 
         super().__post_init__(**kwargs)
 
@@ -93,6 +117,12 @@ slots.wheels = Slot(uri=DEFAULT_.wheels, name="wheels", curie=DEFAULT_.curie('wh
 
 slots.chains = Slot(uri=DEFAULT_.chains, name="chains", curie=DEFAULT_.curie('chains'),
                    model_uri=DEFAULT_.chains, domain=None, range=str)
+
+slots.tanks = Slot(uri=DEFAULT_.tanks, name="tanks", curie=DEFAULT_.curie('tanks'),
+                   model_uri=DEFAULT_.tanks, domain=None, range=Optional[Union[Union[dict, Tank], List[Union[dict, Tank]]]])
+
+slots.Tank_wheels = Slot(uri=DEFAULT_.wheels, name="Tank_wheels", curie=DEFAULT_.curie('wheels'),
+                   model_uri=DEFAULT_.Tank_wheels, domain=Tank, range=str)
 
 slots.Tank_chains = Slot(uri=DEFAULT_.chains, name="Tank_chains", curie=DEFAULT_.curie('chains'),
                    model_uri=DEFAULT_.Tank_chains, domain=Tank, range=str)

@@ -1,5 +1,9 @@
 {
   "name": "tank",
+  "comments": [
+    "corresponds to schema2.yaml from Silvano Cirujano Cuesta",
+    "https://obo-communitygroup.slack.com/archives/C04EU7JL1NF/p1687194459249399"
+  ],
   "id": "http://example.org/tank",
   "prefixes": {
     "linkml": {
@@ -205,6 +209,17 @@
       "from_schema": "http://example.org/tank",
       "is_a": "wheels",
       "required": true
+    },
+    "tanks": {
+      "name": "tanks",
+      "comments": [
+        "from @turbomam, for better compatibility with examples-first-cookiecutter"
+      ],
+      "from_schema": "http://example.org/tank",
+      "multivalued": true,
+      "range": "Tank",
+      "inlined": true,
+      "inlined_as_list": true
     }
   },
   "classes": {
@@ -236,6 +251,16 @@
         "chains"
       ],
       "slot_usage": {
+        "wheels": {
+          "name": "wheels",
+          "comments": [
+            "{\"it does not seem like the 'required\": \"false' usage is being honored\"}"
+          ],
+          "domain_of": [
+            "Vehicle"
+          ],
+          "required": false
+        },
         "chains": {
           "name": "chains",
           "domain_of": [
@@ -259,6 +284,9 @@
         },
         "wheels": {
           "name": "wheels",
+          "comments": [
+            "{\"it does not seem like the 'required\": \"false' usage is being honored\"}"
+          ],
           "from_schema": "http://example.org/tank",
           "alias": "wheels",
           "owner": "Tank",
@@ -266,7 +294,35 @@
             "Vehicle"
           ],
           "range": "string",
-          "required": true
+          "required": false
+        }
+      }
+    },
+    "TankCollection": {
+      "name": "TankCollection",
+      "comments": [
+        "from @turbomam, for better compatibility with examples-first-cookiecutter"
+      ],
+      "from_schema": "http://example.org/tank",
+      "slots": [
+        "tanks"
+      ],
+      "attributes": {
+        "tanks": {
+          "name": "tanks",
+          "comments": [
+            "from @turbomam, for better compatibility with examples-first-cookiecutter"
+          ],
+          "from_schema": "http://example.org/tank",
+          "multivalued": true,
+          "alias": "tanks",
+          "owner": "TankCollection",
+          "domain_of": [
+            "TankCollection"
+          ],
+          "range": "Tank",
+          "inlined": true,
+          "inlined_as_list": true
         }
       }
     }

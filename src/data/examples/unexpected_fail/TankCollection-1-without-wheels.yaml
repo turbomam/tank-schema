@@ -1,0 +1,6 @@
+# this file includes one Tank instance
+#   it doesn't have a wheels assertion, but that should be OK
+#   because Tank has slot_usage for wheels.required = false
+
+tanks:
+  - chains: something

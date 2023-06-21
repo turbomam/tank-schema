@@ -11,6 +11,11 @@ slots:
   chains:
     is_a: wheels
     required: true
+  tanks:
+    range: Tank
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
 classes:
   Vehicle:
     slots:
@@ -22,3 +27,6 @@ classes:
     slot_usage:
       chains:
         required: true
+  TankCollection:
+    slots:
+      - tanks
